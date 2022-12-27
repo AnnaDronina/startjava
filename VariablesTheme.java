@@ -56,9 +56,9 @@ public class VariablesTheme {
                 "\nинкремент:" + ++intMax +
                 "\nдекремент:" + --intMax );
         System.out.println("Long:\n" + 
-                "первоначальное значение:" + intMax +
-                "\nинкремент:" + ++intMax +
-                "\nдекремент:" + --intMax );
+                "первоначальное значение:" + longMax +
+                "\nинкремент:" + ++longMax +
+                "\nдекремент:" + --longMax );
 
         System.out.println("\n5.Перестановка значений переменных");
         int num1 = 2;
@@ -99,34 +99,34 @@ public class VariablesTheme {
         char openParenthesis = '(';
         char closeParenthesis = ')';
 
-        System.out.println("    " + slash + backSlash + 
-                "\n   " + slash + "  " + backSlash + 
-                "\n  " + slash + underscore + openParenthesis + " " + closeParenthesis + backSlash + 
-                "\n " + slash + "      " + backSlash + "\n" +
+        System.out.println("    " + slash + backSlash + "\n   " +
+                slash + "  " + backSlash + "\n  " + 
+                slash + underscore + openParenthesis + " " + closeParenthesis + backSlash + "\n " +
+                slash + "      " + backSlash + "\n" +
                 slash + underscore + underscore + underscore + underscore + slash + backSlash + 
                 underscore + underscore + backSlash );
 
         System.out.println("\n8.Вывод количества сотен, десятков и единиц числа");
         int num  = 123;
 
-        int hundred = num / 100; 
-        int ten = num / 10 % 10; 
-        int unit = num % 10; 
+        int hundreds = num / 100; 
+        int tens = num / 10 % 10; 
+        int ones = num % 10; 
 
-        System.out.println("Число " + num + "содержит \n" + hundred + " сотен\n" + ten + 
-                " десятков\n" + unit + " единиц");
+        System.out.println("Число " + num + " содержит \n" + hundreds + " сотен\n" + tens + 
+                " десятков\n" + ones + " единиц");
 
-        int numberSum = hundred + ten + unit;
-        System.out.println("Сумма его цифр = " + numberSum);
-        int numberProduct = hundred * ten * unit;
-        System.out.println("Произведение = " + numberProduct);
+        int sumDigits = hundreds + tens + ones;
+        System.out.println("Сумма его цифр = " + sumDigits);
+        int prodDigits = hundreds * tens * ones;
+        System.out.println("Произведение = " + prodDigits);
 
         System.out.println("\n9.Вывод времени");
-        num = 86399;
+        int totalSeconds = 86399;
 
-        int hours = num / 3600;
-        int minutes = num / 60 % 60;
-        int seconds = num / 1 % 60;
+        int hours = totalSeconds / 3600;
+        int minutes = totalSeconds / 60 % 60;
+        int seconds = totalSeconds % 60;
         System.out.println(hours + ":" + minutes + ":" + seconds);
     }
 }
