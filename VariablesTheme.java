@@ -26,8 +26,8 @@ public class VariablesTheme {
         int bookPrice = 200;
         int discount = 11;
 
-        float discountSum = ( ( penPrice + bookPrice) * discount ) / 100;
-        float discountPrice = ( penPrice + bookPrice ) - discountSum;
+        float discountSum = ((penPrice + bookPrice) * discount) / 100;
+        float discountPrice = (penPrice + bookPrice) - discountSum;
 
         System.out.println("Cумма скидки:" + discountPrice +
                 "\nОбщая стоимость товаров со скидкой:" + discountSum);
