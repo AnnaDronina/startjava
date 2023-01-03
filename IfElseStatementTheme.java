@@ -11,8 +11,7 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("Возраст " + age + " меньше 20");
         }
-        boolean isGenderMale = gender == 'М';
-        if (!isGenderMale) {
+        if (gender != 'М') {
             System.out.println("Введенный пол = женский");
         } else {
             System.out.println("Введенный пол = мужской");
@@ -32,16 +31,11 @@ public class IfElseStatementTheme {
         System.out.println("\n2.Поиск max и min числа");
         int num1 = 456;
         int num2 = 99;
-        int max,min;
 
         if (num1 < num2) {
-            max = num2;
-            min = num1;
-            System.out.println("Максимум = " + max + "\nМинимум = " + min);
+            System.out.println("Максимум = " + num2 + "\nМинимум = " + num1);
         } else if (num1 > num2) {
-            max = num1;
-            min = num2;
-            System.out.println("Максимум = " + max + "\nМинимум = " + min);
+            System.out.println("Максимум = " + num1 + "\nМинимум = " + num2);
         } else {
             System.out.println("Числа равны. Значение = " + num1);
         }
@@ -50,109 +44,102 @@ public class IfElseStatementTheme {
         num1 = -1234;
 
         if (num1 != 0) {
-            boolean isEvenNumber = num1 % 2 == 0;
-            if (!isEvenNumber) {
-                System.out.println("Число " + num1 + " нечетное");
+            System.out.println("Число " + num1 + " является:");
+            if (num1 % 2 != 0) {
+                System.out.println("нечетным");
             } else {
-                System.out.println("Число " + num1 + " четное");
+                System.out.println("четным");
             }
 
             if (num1 > 0) {
-                System.out.println("Число " + num1 + " положительное");
+                System.out.println("положительным");
             } else {
-                System.out.println("Число " + num1 + " отрицательное");
+                System.out.println("отрицательным");
             }
         }
 
         System.out.println("\n4.Поиск одинаковых цифр в числах");
-        num1  = 123;
+        num1 = 123;
         num2 = 224;
 
-        int hundreds = num1 / 100; 
-        int tens = num1 / 10 % 10; 
-        int ones = num1 % 10; 
+        int hundreds1 = num1 / 100; 
+        int tens1 = num1 / 10 % 10; 
+        int ones1 = num1 % 10; 
 
-        int hundreds1 = num2 / 100; 
-        int tens1 = num2 / 10 % 10; 
-        int ones1 = num2 % 10;
+        int hundreds2 = num2 / 100; 
+        int tens2 = num2 / 10 % 10; 
+        int ones2 = num2 % 10;
 
         System.out.println("В числах " + num1 + " и " + num2);
-        if (hundreds == hundreds1) {
-            System.out.println("Одинаковые цифры 3-го разряда: " + hundreds);
+        if (hundreds1 == hundreds2) {
+            System.out.println("Одинаковые цифры 3-го разряда: " + hundreds1);
         }
-        if (tens == tens1) {
-            System.out.println("Одинаковые цифры 2-го разряда: " + tens);
+        if (tens1 == tens2) {
+            System.out.println("Одинаковые цифры 2-го разряда: " + tens1);
         }
-        if (ones == ones1) {
-            System.out.println("Одинаковые цифры 1-го разряда: " + ones);
+        if (ones1 == ones2) {
+            System.out.println("Одинаковые цифры 1-го разряда: " + ones1);
         }
 
-        boolean isEqualNumber = hundreds == hundreds1 || tens == tens1 || ones == ones1;
-        if (!isEqualNumber) {
+        boolean equalNumbers = hundreds1 == hundreds2 || tens1 == tens2 || ones1 == ones2;
+        if (!equalNumbers) {
             System.out.println("Одинаковых цифр нет");
         }
 
         System.out.println("\n5.Определение символа по его коду");
-        char digit = '\u0057';
+        char symbol = '\u0057';
 
-        if (digit >= 'a' && digit <= 'z') {
-           System.out.println("Маленькая буква " + digit);
-        } else if (digit >= 'A' && digit <= 'Z') {
-            System.out.println("Большая буква " + digit);
-        } else if (digit >= '0' && digit <= '9') {
-            System.out.println("Число " + digit);
+        if (symbol >= 'a' && symbol <= 'z') {
+           System.out.println("Маленькая буква " + symbol);
+        } else if (symbol >= 'A' && symbol <= 'Z') {
+            System.out.println("Большая буква " + symbol);
+        } else if (symbol >= '0' && symbol <= '9') {
+            System.out.println("Число " + symbol);
         } else {
             System.out.println("Не буква и не число");
         }
 
         System.out.println("\n6.Подсчет суммы вклада и начисленных банком %");
         int depositSum = 300000;
-        int percent = 0;
-        int accruedPercent,totalSum;
+        int percent = 5;
 
-        if (depositSum < 100000) {
-            percent = 5;
-        } else if (depositSum >= 100000 && depositSum <= 300000) {
+        if (depositSum >= 100000 && depositSum <= 300000) {
             percent = 7;
         } else if (depositSum > 300000) {
             percent = 10;
         }
 
-        accruedPercent = ((depositSum * percent)/100);
-        totalSum = accruedPercent + depositSum;
+        int accruedPercent = ((depositSum * percent) / 100);
+        int totalSum = accruedPercent + depositSum;
         System.out.println("Сумма вклада = " + depositSum + "\nначисленный % = " + accruedPercent + 
                 "\nитоговую сумму с % = " + totalSum);
 
         System.out.println("\n7.Определение оценки по предметам");
-        int historyPercentage = 59;
-        int programmingPercentage = 91;
-        int historyMark = 0;
-        int programmingMark = 0;
+        int historyPercent = 59;
+        int programmingPercent = 91;
+        int historyMark = 2;
+        int programmingMark = 2;
 
-        if (historyPercentage <= 60) {
-            historyMark = 2;
-        } else if (historyPercentage > 60 && historyPercentage <=73) {
+        if (historyPercent > 60 && historyPercent <=73) {
             historyMark = 3;
-        } else if (historyPercentage > 73 && historyPercentage < 91) {
+        } else if (historyPercent > 73 && historyPercent < 91) {
             historyMark = 4;
-        } else if (historyPercentage > 91) {
+        } else if (historyPercent > 91) {
             historyMark = 5;
         }
 
-        if (programmingPercentage <= 60) {
-            programmingMark = 2;
-        } else if (programmingPercentage > 60 && programmingPercentage <=73) {
+        if (programmingPercent > 60 && programmingPercent <= 73) {
             programmingMark = 3;
-        } else if (programmingPercentage > 73 && programmingPercentage <= 91) {
+        } else if (programmingPercent > 73 && programmingPercent <= 91) {
             programmingMark = 4;
-        } else if (programmingPercentage > 91) {
+        } else if (programmingPercent > 91) {
             programmingMark = 5;
         }
 
-        int gradePointAverage = (historyMark + programmingMark)/2;
-        int percentageAverage = (historyPercentage + programmingPercentage)/2;
+        int markAverage = (historyMark + programmingMark) / 2;
+        int percentAverage = (historyPercent + programmingPercent) / 2;
         System.out.println(historyMark + " История\n" + programmingMark + " Программирование\n" + 
-                gradePointAverage + " Средний балл оценок по предметам\n" + percentageAverage + 
+                markAverage + " Средний балл оценок по предметам\n" + percentAverage + 
                 " Средний процент по предметам");
 
         System.out.println("\n8.Расчет прибыли за год");
@@ -161,7 +148,7 @@ public class IfElseStatementTheme {
         int costPrice = 9000;
 
         int yearProfit = (averageProfitSum - costPrice - rentalPrice) * 12;
-        System.out.println("прибыль за год: " + yearProfit);
+        System.out.println("прибыль за год: " + yearProfit + " руб.");
 
         System.out.println("\n9.Подсчет количества банкнот");
         int sum = 567;
