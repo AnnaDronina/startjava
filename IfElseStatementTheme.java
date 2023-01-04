@@ -43,8 +43,8 @@ public class IfElseStatementTheme {
         System.out.println("\n3.Проверка числа");
         num1 = -1234;
 
+        System.out.println("Число " + num1 + " является:");
         if (num1 != 0) {
-            System.out.println("Число " + num1 + " является:");
             if (num1 % 2 != 0) {
                 System.out.println("нечетным");
             } else {
