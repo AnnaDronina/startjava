@@ -56,6 +56,8 @@ public class IfElseStatementTheme {
             } else {
                 System.out.println("отрицательным");
             }
+        } else {
+            System.out.println("нулем");
         }
 
         System.out.println("\n4.Поиск одинаковых цифр в числах");
@@ -120,7 +122,7 @@ public class IfElseStatementTheme {
         int historyMark = 2;
         int programmingMark = 2;
 
-        if (historyPercent > 60 && historyPercent <=73) {
+        if (historyPercent > 60 && historyPercent <= 73) {
             historyMark = 3;
         } else if (historyPercent > 73 && historyPercent < 91) {
             historyMark = 4;
