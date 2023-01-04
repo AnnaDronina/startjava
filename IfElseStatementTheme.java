@@ -150,7 +150,11 @@ public class IfElseStatementTheme {
         int costPrice = 9000;
 
         int yearProfit = (averageProfitSum - costPrice - rentalPrice) * 12;
-        System.out.println("прибыль за год: " + yearProfit + " руб.");
+        if (yearProfit > 0) {
+            System.out.println("прибыль за год: +" + yearProfit + " руб.");
+        } else {
+            System.out.println("прибыль за год: " + yearProfit + " руб.");
+        }
 
         System.out.println("\n9.Подсчет количества банкнот");
         int sum = 567;
