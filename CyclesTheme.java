@@ -55,42 +55,40 @@ public class CyclesTheme {
         System.out.println("\n4.Вывод чисел на консоль в несколько строк");
         num1 = 1;
         num2 = 24;
-        int counterDigits = 0;
+        int countDigits = 0;
 
-        for (int i = num1; i < num2; i+=2) {
-            if (counterDigits == 5) {
+        for (int i = num1; i < num2; i += 2) {
+            if (countDigits == 5) {
                 System.out.println();
-                counterDigits = 0;
+                countDigits = 0;
             }
             System.out.printf("%4d", i);
-            counterDigits++;
-
-            if (i == num2 - 1) {
-                counterDigits = 5 - counterDigits;
-                for (int j = 1; j <= counterDigits; j++) {
-                    System.out.printf("%4d", 0);
-                }
-            }
+            countDigits++;
         }
+        countDigits = 5 - countDigits;
+            for (int j = 1; j <= countDigits; j++) {
+                System.out.printf("%4d", 0);
+            }
+
 
         System.out.println("\n5.Проверка количества двоек на четность/нечетность");
         num1 = 3242592;
-        int count = 0;
-        int tmp = num1;
+        int countTwos = 0;
+        int copyNum1 = num1;
 
-        while (tmp != 0){
-            int digit = tmp % 10;
-            tmp /= 10;
+        while (copyNum1 > 0) {
+            int digit = copyNum1 % 10;
+            copyNum1 /= 10;
 
             if (digit == 2) {
-                count++;
+                countTwos++;
             }
         }
         System.out.print("число " + num1 + " содержит ");
-        if (count % 2 == 0) {
-            System.out.println( count + " четное кол-во двоек");
-        }else {
-            System.out.println( count + " нечетное кол-во двоек");
+        if (countTwos % 2 == 0) {
+            System.out.println( countTwos + " четное кол-во двоек");
+        } else {
+            System.out.println( countTwos + " нечетное кол-во двоек");
         }
 
         System.out.println("\n6.Отображение фигур в консоли");
@@ -103,14 +101,14 @@ public class CyclesTheme {
         }
         System.out.println();
 
-        int i = 5;
+        int i = 6;
         while (i > 0){
             int j = 1;
             while (j < i) {
                 System.out.print("#");
                 j++;
             }
-            System.out.println("#");
+            System.out.println();
             i--;
         }
         System.out.println();
@@ -136,69 +134,68 @@ public class CyclesTheme {
         } while (i != 0);
 
         System.out.println("\n7.Отображение ASCII-символов");
-        System.out.printf("%4s %4s", "DEC" , "CHAR");
-        System.out.println( );
+        System.out.printf("%4s %4s \n", "DEC" , "CHAR");
 
-        i = 0;
         boolean isNumber = false;
-        while (isNumber != true) {
-            char symbol = (char)i;
-            isNumber = symbol >= '0' && symbol <= '9';
-            if (isNumber == false && i % 2 != 0) {
-                System.out.printf("%4d %4s", i , symbol);
-                System.out.println( );
+        boolean isSymbol = true;
+        for (i = 0; i <= 127; i++) {
+            if (isSymbol) {
+                char symbol = (char)i;
+                isNumber = symbol >= '0' && symbol <= '9';
+                if (!isNumber && i % 2 != 0) {
+                    System.out.printf("%4d %4s \n", i , symbol);
+                } else if (isNumber) {
+                    isSymbol = false;
+                }
             }
-            i++;
         }
 
-        i = 0;
-        for ( i = 0; i <= 127; i++) {
+        for (i = 0; i <= 127; i++) {
             char symbol = (char)i;
             boolean isSmallLetter = symbol >= 'a' && symbol <= 'z';
-            if (isSmallLetter == true && i % 2 == 0) {
-                System.out.printf("%4d %4s", i , symbol);
-                System.out.println( );
+            if (isSmallLetter && i % 2 == 0) {
+                System.out.printf("%4d %4s \n", i , symbol);
             }
         }
 
         System.out.println("\n8.Проверка, является ли число палиндромом");
         num1 = 1234321;
-        num2 = 0;
-        tmp = num1;
+        int reverse = 0;
+        copyNum1 = num1;
 
-        while (tmp > 0){
-            int symbol = tmp % 10;
-            num2 = num2 * 10 + symbol;
-            tmp = tmp / 10;
+        while (copyNum1 > 0) {
+            int digit = copyNum1 % 10;
+            reverse = reverse * 10 + digit;
+            copyNum1 /= 10;
         }
 
         System.out.print("Число " + num1 + " является ");
-        if (num1 == num2) {
+        if (num1 == reverse) {
             System.out.println("палиндромом");
-        }else {
+        } else {
             System.out.println("не палиндром");
         }
 
         System.out.println("\n9.Определение, является ли число счастливым");
         num1 = 123123;
+        countDigits = 0;
         int step = 1;
-        count = 0;
-        sum = 0;
-        int sum1 = 0;
+        int sumLeft = 0;
+        int sumRight = 0;
 
-        while (num1 != 0){
-            sum += step * (num1 % 10);
+        while (num1 > 0) {
+            sumLeft += step * (num1 % 10);
             num1 /= 10;
-            count++;
-            if (count == 3) {
+            countDigits++;
+            if (countDigits == 3) {
                 step = 1;
-                sum1 = sum;
-                sum = 0;
+                sumRight = sumLeft;
+                sumLeft = 0;
             }
         }
-        System.out.println("Сумма цифр " + sum + " = " + sum1);
+        System.out.println("Сумма цифр " + sumLeft + " = " + sumRight);
 
-        if (sum == sum1) {
+        if (sumLeft == sumRight) {
             System.out.println("Счастливый");
         } else {
             System.out.println("Не счастливый");
