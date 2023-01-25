@@ -66,10 +66,10 @@ public class CyclesTheme {
             countDigits++;
         }
         countDigits = 5 - countDigits;
-            for (int j = 1; j <= countDigits; j++) {
-                System.out.printf("%4d", 0);
-            }
-
+        for (int j = 1; j <= countDigits; j++) {
+            System.out.printf("%4d", 0);
+        }
+        System.out.println();
 
         System.out.println("\n5.Проверка количества двоек на четность/нечетность");
         num1 = 3242592;
@@ -102,7 +102,7 @@ public class CyclesTheme {
         System.out.println();
 
         int i = 6;
-        while (i > 0){
+        while (i > 0) {
             int j = 1;
             while (j < i) {
                 System.out.print("#");
@@ -111,7 +111,6 @@ public class CyclesTheme {
             System.out.println();
             i--;
         }
-        System.out.println();
 
         i = 1;
         boolean isMiddle = false;
@@ -203,13 +202,13 @@ public class CyclesTheme {
 
         System.out.println("\n10.Вывод таблицы умножения Пифагора");
 
-        for ( i = 1; i < 10; i++) {
-            if ( i != 1) {
+        for (i = 1; i < 10; i++) {
+            if (i != 1) {
                 System.out.printf("%4d |", i);
-            }else {
+            } else {
                 System.out.printf("     |");
             }
-            for(int j = 2; j < 10; j++){
+            for (int j = 2; j < 10; j++) {
                 System.out.printf("%4d", j * i);
             }
             if (i == 1) {
