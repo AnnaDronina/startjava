@@ -97,49 +97,49 @@ public class CyclesTheme {
             for (int j = 1; j <= 10; j ++ ) {
                 System.out.print("*");
             }
-            System.out.println("*");
+            System.out.println();
         }
         System.out.println();
 
-        int i = 6;
-        while (i > 0) {
-            int j = 1;
-            while (j < i) {
+        int lineCount = 6;
+        while (lineCount > 0) {
+            int columnCount = 1;
+            while (columnCount < lineCount) {
                 System.out.print("#");
-                j++;
+                columnCount++;
             }
             System.out.println();
-            i--;
+            lineCount--;
         }
 
-        i = 1;
+        lineCount = 1;
         boolean isMiddle = false;
         do {
-            int j = i;
+            int columnCount = lineCount;
             do {
                 System.out.print("$");
-                j--;
-            } while (j != 0);
+                columnCount--;
+            } while (columnCount != 0);
 
             System.out.println();
-            if (i == 3) {
+            if (lineCount == 3) {
                 isMiddle = true;
             }
             if (!isMiddle) {
-                i++;
+                lineCount++;
             } else {
-                i--;
+                lineCount--;
             }
-        } while (i != 0);
+        } while (lineCount != 0);
 
         System.out.println("\n7.Отображение ASCII-символов");
         System.out.printf("%4s %4s \n", "DEC" , "CHAR");
 
         boolean isNumber = false;
         boolean isSymbol = true;
-        for (i = 0; i <= 127; i++) {
+        for (int i = 0; i <= 127; i++) {
             if (isSymbol) {
-                char symbol = (char)i;
+                char symbol = (char) i;
                 isNumber = symbol >= '0' && symbol <= '9';
                 if (!isNumber && i % 2 != 0) {
                     System.out.printf("%4d %4s \n", i , symbol);
@@ -149,8 +149,8 @@ public class CyclesTheme {
             }
         }
 
-        for (i = 0; i <= 127; i++) {
-            char symbol = (char)i;
+        for (int i = 0; i <= 127; i++) {
+            char symbol = (char) i;
             boolean isSmallLetter = symbol >= 'a' && symbol <= 'z';
             if (isSmallLetter && i % 2 == 0) {
                 System.out.printf("%4d %4s \n", i , symbol);
@@ -178,21 +178,24 @@ public class CyclesTheme {
         System.out.println("\n9.Определение, является ли число счастливым");
         num1 = 123123;
         countDigits = 0;
-        int step = 1;
         int sumLeft = 0;
         int sumRight = 0;
+        copyNum1 = num1;
 
         while (num1 > 0) {
-            sumLeft += step * (num1 % 10);
+            sumLeft += num1 % 10;
             num1 /= 10;
             countDigits++;
             if (countDigits == 3) {
-                step = 1;
                 sumRight = sumLeft;
                 sumLeft = 0;
             }
         }
-        System.out.println("Сумма цифр " + sumLeft + " = " + sumRight);
+        int numberLeft = copyNum1 / 1000;
+        int numberRight = copyNum1 % 1000;
+
+        System.out.println("Сумма цифр "+ numberLeft + " = " + sumLeft);
+        System.out.println("Сумма цифр "+ numberRight + " = " + sumRight);
 
         if (sumLeft == sumRight) {
             System.out.println("Счастливый");
@@ -202,7 +205,7 @@ public class CyclesTheme {
 
         System.out.println("\n10.Вывод таблицы умножения Пифагора");
 
-        for (i = 1; i < 10; i++) {
+        for (int i = 1; i < 10; i++) {
             if (i != 1) {
                 System.out.printf("%4d |", i);
             } else {
@@ -214,7 +217,7 @@ public class CyclesTheme {
             if (i == 1) {
                 System.out.print("\n---------------------------------------");
             }
-            System.out.println("");
+            System.out.println();
         }
 
     }
