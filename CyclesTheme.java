@@ -138,8 +138,8 @@ public class CyclesTheme {
         boolean isNumber = false;
         boolean isSymbol = true;
         for (int i = 0; i <= 127; i++) {
+            char symbol = (char) i;
             if (isSymbol) {
-                char symbol = (char) i;
                 isNumber = symbol >= '0' && symbol <= '9';
                 if (!isNumber && i % 2 != 0) {
                     System.out.printf("%4d %4s \n", i , symbol);
@@ -147,10 +147,7 @@ public class CyclesTheme {
                     isSymbol = false;
                 }
             }
-        }
-
-        for (int i = 0; i <= 127; i++) {
-            char symbol = (char) i;
+            
             boolean isSmallLetter = symbol >= 'a' && symbol <= 'z';
             if (isSmallLetter && i % 2 == 0) {
                 System.out.printf("%4d %4s \n", i , symbol);
