@@ -1,0 +1,5 @@
+# Compiled Files
+*.class
+# Folder
+/out
+/.idea/
