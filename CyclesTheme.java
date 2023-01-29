@@ -135,22 +135,18 @@ public class CyclesTheme {
         System.out.println("\n7.Отображение ASCII-символов");
         System.out.printf("%4s %4s \n", "DEC" , "CHAR");
 
-        boolean isNumber = false;
         boolean isSymbol = true;
         for (int i = 0; i <= 127; i++) {
-            char symbol = (char) i;
             if (isSymbol) {
-                isNumber = symbol >= '0' && symbol <= '9';
-                if (!isNumber && i % 2 != 0) {
-                    System.out.printf("%4d %4s \n", i , symbol);
-                } else if (isNumber) {
+                if (!(i >= '0' && i <= '9') && i % 2 != 0) {
+                    System.out.printf("%4d %4s \n", i , (char) i);
+                } else if (i >= '0' && i <= '9') {
                     isSymbol = false;
                 }
-            }
-            
-            boolean isSmallLetter = symbol >= 'a' && symbol <= 'z';
-            if (isSmallLetter && i % 2 == 0) {
-                System.out.printf("%4d %4s \n", i , symbol);
+            } else { 
+                if (i >= 'a' && i <= 'z' && i % 2 == 0) {
+                System.out.printf("%4d %4s \n", i , (char) i);
+                }
             }
         }
 
