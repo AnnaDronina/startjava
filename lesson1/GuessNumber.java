@@ -4,9 +4,7 @@ public class GuessNumber {
         int hiddenNum = 77;
         int randomNum = 33;
 
-        if (randomNum == hiddenNum) {
-            System.out.println("Вы победили");
-        } else if (randomNum > 0 && randomNum <= 100) {
+        if (randomNum > 0 && randomNum <= 100) {
             while (randomNum != hiddenNum) {
                 if (randomNum > hiddenNum) {
                     System.out.println("Число " + randomNum + " больше того, что загадал компьютер");
@@ -16,10 +14,11 @@ public class GuessNumber {
                     randomNum++;
                 }
             }
-            System.out.println("Вы победили");
         } else {
             System.out.println("Введенное число не находится в полуинтервале (0, 100]");
+            return;
         }
+        System.out.println("Вы победили");
 
     }
 }
