@@ -6,27 +6,18 @@ public class GuessNumber {
 
         if (randomNum == hiddenNum) {
             System.out.println("Вы победили");
-        } else if (randomNum > hiddenNum && randomNum <= 100 ) {
-            System.out.println("Число " + randomNum + " больше того, что загадал компьютер");
+        } else if (randomNum > 0 && randomNum <= 100) {
             while (randomNum != hiddenNum) {
-                randomNum--;
-                if (randomNum == hiddenNum) {
-                    System.out.println("Вы победили");
-                } else if (randomNum > hiddenNum) {
+                if (randomNum > hiddenNum) {
                     System.out.println("Число " + randomNum + " больше того, что загадал компьютер");
-                }
-            }
-        } else if (randomNum < hiddenNum && randomNum > 0) {
-            System.out.println("Число " + randomNum + " меньше того, что загадал компьютер");
-            while (randomNum != hiddenNum) {
-                randomNum++;
-                if (randomNum == hiddenNum) {
-                    System.out.println("Вы победили");
+                    randomNum--;
                 } else if (randomNum < hiddenNum) {
                     System.out.println("Число " + randomNum + " меньше того, что загадал компьютер");
+                    randomNum++;
                 }
             }
-        } else if (randomNum > 100 || randomNum <=0) {
+            System.out.println("Вы победили");
+        } else {
             System.out.println("Введенное число не находится в полуинтервале (0, 100]");
         }
 
