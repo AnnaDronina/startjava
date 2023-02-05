@@ -13,7 +13,6 @@ public class CalculatorTest {
             System.out.print("Введите знак математической операции: ");
             calculator.setSign(scanner.next().charAt(0));
 
-
             System.out.print("Введите второе число: ");
             calculator.setNum2(scanner.nextInt());
 
@@ -23,8 +22,6 @@ public class CalculatorTest {
                 System.out.print("Хотите продолжить вычисления? [yes/no]:");
                 answer = scanner.next();
             } while(!answer.equals("yes") && !answer.equals("no"));
-
         } while(!answer.equals("no"));
-
     }
 }
