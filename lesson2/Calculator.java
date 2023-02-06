@@ -20,9 +20,8 @@ public class Calculator {
         if ((sign == '/' || sign == '%') && num2 == 0) {
             System.out.println("Делить на 0 нельзя!");
             return;
-        } else {
-            this.num2 = num2;
         }
+        this.num2 = num2;
     }
 
     public char getSign() {
