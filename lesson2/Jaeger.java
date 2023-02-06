@@ -6,8 +6,7 @@ public class Jaeger {
     private int strength;
     private int armor;
 
-    public Jaeger() {
-    }
+    public Jaeger() {}
 
     public Jaeger(String modelName, String mark, String origin, int strength, int armor) {
         this.modelName = modelName;
