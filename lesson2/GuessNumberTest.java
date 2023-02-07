@@ -18,7 +18,6 @@ public class GuessNumberTest {
 
         do {
             guessNumber.setHiddenNumber(random.nextInt(100)+1);
-            System.out.println(guessNumber.getHiddenNumber()); //убрать потом
             guessNumber.startPlay();
             do {
                 System.out.print("Хотите продолжить игру? [yes/no]:");
