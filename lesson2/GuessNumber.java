@@ -15,10 +15,9 @@ public class GuessNumber {
     public void play() {
         Player currentPlayer = player1;
         Random random = new Random();
-        hiddenNumber = random.nextInt(100)+1;
-        boolean winner = false;
+        hiddenNumber = random.nextInt(100) + 1;
 
-        while (!winner) {
+        while (true) {
             guess(currentPlayer);
             if (currentPlayer.getNumber() > 0 && currentPlayer.getNumber() <= 100) {
                 if (currentPlayer.getNumber() > hiddenNumber) {
@@ -29,12 +28,12 @@ public class GuessNumber {
                             " меньше того, что загадал компьютер");
                 } else {
                     System.out.println(currentPlayer.getName() + " Вы победили");
-                    winner = true;
+                    break;
                 }
             } else {
                 System.out.println("Введенное число не находится в полуинтервале (0, 100]");
             }
-            currentPlayer = playerChange(currentPlayer);
+            currentPlayer = changePlayer(currentPlayer);
         }
     }
 
@@ -44,7 +43,7 @@ public class GuessNumber {
         currentPlayer.setNumber(scanner.nextInt());
     }
 
-    private Player playerChange(Player currentPlayer) {
+    private Player changePlayer(Player currentPlayer) {
         return currentPlayer == player1 ? player2 : player1;
     }
 }
