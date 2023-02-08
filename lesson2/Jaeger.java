@@ -44,7 +44,7 @@ public class Jaeger {
         this.armor = armor;
     }
 
-    public void presentation() {
+    public void introduce() {
         System.out.println("Модель " + modelName + ", поколение " + mark + 
                 ", страна производитель " + origin + ", силовой показатель " + strength + 
                 ", устойчивость брони " + armor);
