@@ -16,7 +16,6 @@ public class GuessNumber {
         Player currentPlayer = player1;
         Random random = new Random();
         hiddenNumber = random.nextInt(100)+1;
-        System.out.println(hiddenNumber);// убрать
         boolean winner = false;
 
         while (!winner) {
