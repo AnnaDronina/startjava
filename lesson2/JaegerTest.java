@@ -11,10 +11,10 @@ public class JaegerTest {
         Jaeger strikerEureka = new Jaeger("Striker Eureka", "Mark-5", "Australia", 10, 9);
 
         System.out.println("Егерь 1:");
-        gipsyDanger.presentation();
+        gipsyDanger.introduce();
 
         System.out.println("Егерь 2:");
-        strikerEureka.presentation();
+        strikerEureka.introduce();
 
         gipsyDanger.drift();
         strikerEureka.drift();
