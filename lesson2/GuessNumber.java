@@ -47,5 +47,4 @@ public class GuessNumber {
     private Player playerChange(Player currentPlayer) {
         return currentPlayer == player1 ? player2 : player1;
     }
-
 }
