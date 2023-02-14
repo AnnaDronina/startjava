@@ -34,7 +34,7 @@ public class Calculator {
         this.sign = sign;
     }
 
-    public int calculate() {
+    public double calculate() {
         switch(sign) {
             case '+' :
                 return num1 + num2;
