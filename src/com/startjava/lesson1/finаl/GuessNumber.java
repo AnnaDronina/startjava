@@ -21,6 +21,5 @@ public class GuessNumber {
             return;
         }
         System.out.println("Вы победили");
-
     }
 }
