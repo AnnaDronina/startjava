@@ -6,16 +6,8 @@ public class Calculator {
     private int num2;
     private char sign;
 
-    public int getNum1() {
-        return num1;
-    }
-
     public void setNum1(int num1) {
         this.num1 = num1;
-    }
-
-    public int getNum2() {
-        return num2;
     }
 
     public void setNum2(int num2) {
@@ -26,32 +18,31 @@ public class Calculator {
         this.num2 = num2;
     }
 
-    public char getSign() {
-        return sign;
-    }
-
     public void setSign(char sign) {
         this.sign = sign;
+    }
+
+    public void getExpression(String expression) {
+        String[] expressionArray = expression.split(" ");
+        setNum1(Integer.parseInt(expressionArray[0]));
+        setNum2(Integer.parseInt(expressionArray[2]));
+        setSign(expressionArray[1].charAt(0));
     }
 
     public double calculate() {
         switch(sign) {
             case '+' :
-                return num1 + num2;
+                return  Math.addExact(num1, num2);
             case '-' :
-                return num1 - num2;
+                return Math.subtractExact(num1, num2);
             case '/' :
-                return num1 / num2;
+                return Math.floorDiv(num1, num2);
             case '%' :
-                return num1 % num2;
+                return Math.floorMod(num1, num2);
             case '^' :
-                int result = 1;
-                for (int i = 1; i <= num2; i++) {
-                    result *= num1;
-                }
-                return result;
+                return Math.pow(num1, num2);
             case '*' :
-                return num1 * num2;
+                return Math.multiplyExact(num1, num2);
             default :
                 return 0;
         }

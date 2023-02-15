@@ -9,21 +9,21 @@ public class CalculatorTest {
         Scanner scanner = new Scanner(System.in);
         String answer;
         do {
-            System.out.print("Введите первое число: ");
-            calculator.setNum1(scanner.nextInt());
-
-            System.out.print("Введите знак математической операции: ");
-            calculator.setSign(scanner.next().charAt(0));
-
-            System.out.print("Введите второе число: ");
-            calculator.setNum2(scanner.nextInt());
-
-            System.out.println("Результат вычисления: " + calculator.calculate());
+            System.out.print("Введите математическое выражение: ");
+            calculator.getExpression(scanner.nextLine());
+            double result = calculator.calculate();
+            System.out.print("Результат вычисления: ");
+            if (result % 1 == 0) {
+                System.out.printf("%.0f", result);
+            } else {
+                System.out.printf("%.2f", result);
+            }
+            System.out.println();
 
             do {
                 System.out.print("Хотите продолжить вычисления? [yes/no]:");
                 answer = scanner.next();
             } while (!answer.equals("yes") && !answer.equals("no"));
-        } while (!answer.equals("no"));
+        } while (!"no".equals(answer));
     }
 }
