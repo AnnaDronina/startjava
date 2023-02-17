@@ -2,49 +2,45 @@ package com.startjava.lesson2_3_4.calculator;
 
 public class Calculator {
 
-    private int num1;
-    private int num2;
-    private char sign;
+    private static int num1;
+    private static int num2;
+    private static char sign;
 
-    public void setNum1(int num1) {
-        this.num1 = num1;
+    public static void setNum1(int num1) {
+        Calculator.num1 = num1;
     }
 
-    public void setNum2(int num2) {
+    public static void setNum2(int num2) throws Exception {
         if ((sign == '/' || sign == '%') && num2 == 0) {
-            System.out.println("Делить на 0 нельзя!");
-            return;
+            throw new Exception("Делить на 0 нельзя!");
         }
-        this.num2 = num2;
+        Calculator.num2 = num2;
     }
 
-    public void setSign(char sign) {
-        this.sign = sign;
+    public static void setSign(char sign) {
+        Calculator.sign = sign;
     }
 
-    public void getExpression(String expression) {
-        String[] expressionArray = expression.split(" ");
-        setNum1(Integer.parseInt(expressionArray[0]));
-        setNum2(Integer.parseInt(expressionArray[2]));
-        setSign(expressionArray[1].charAt(0));
-    }
-
-    public double calculate() {
-        switch(sign) {
-            case '+' :
-                return  Math.addExact(num1, num2);
-            case '-' :
-                return Math.subtractExact(num1, num2);
-            case '/' :
-                return Math.floorDiv(num1, num2);
-            case '%' :
-                return Math.floorMod(num1, num2);
-            case '^' :
-                return Math.pow(num1, num2);
-            case '*' :
-                return Math.multiplyExact(num1, num2);
-            default :
-                return 0;
+    public static void splitExpression(String expression) throws Exception {
+        String[] partsArray = expression.split(" ");
+        if (!partsArray[0].matches("\\d+") || !partsArray[2].matches("\\d+")) {
+            throw new Exception("Введите положительное число!");
         }
+        setNum1(Integer.parseInt(partsArray[0]));
+        setSign(partsArray[1].charAt(0));
+        setNum2(Integer.parseInt(partsArray[2]));
+    }
+
+    public static double calculate(String expression) throws Exception {
+        Calculator.splitExpression(expression);
+        return switch(sign) {
+            case '+' -> Math.addExact(num1, num2);
+            case '-' -> Math.subtractExact(num1, num2);
+            case '/' -> Math.floorDiv(num1, num2);
+            case '%' -> Math.floorMod(num1, num2);
+            case '^' -> Math.pow(num1, num2);
+            case '*' -> Math.multiplyExact(num1, num2);
+            default -> 0;
+        };
     }
 }
