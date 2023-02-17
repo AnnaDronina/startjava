@@ -6,10 +6,10 @@ public class CalculatorTest {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String answer;
+        String answer = "yes";
         do {
+            System.out.print("Введите математическое выражение: ");
             try {
-                System.out.print("Введите математическое выражение: ");
                 double result = Calculator.calculate(scanner.nextLine());
                 System.out.print("Результат вычисления: ");
                 if (result % 1 == 0) {
@@ -17,13 +17,14 @@ public class CalculatorTest {
                 } else {
                     System.out.printf("%.2f", result);
                 }
-            } catch (Exception error) {
-                System.out.println(error.getMessage() + "\nВведите корректное значение!");
+            } catch (Exception e) {
+                System.out.println(e.getMessage() + "\nВведите корректное значение!");
             }
-            do {
+
+            if (answer.equals("yes")) {
                 System.out.print("\nХотите продолжить вычисления? [yes/no]:");
                 answer = scanner.nextLine();
-            } while (!answer.equals("yes") && !answer.equals("no"));
+            };
         } while (!"no".equals(answer));
     }
 }

@@ -21,18 +21,8 @@ public class Calculator {
         Calculator.sign = sign;
     }
 
-    public static void splitExpression(String expression) throws Exception {
-        String[] partsArray = expression.split(" ");
-        if (!partsArray[0].matches("\\d+") || !partsArray[2].matches("\\d+")) {
-            throw new Exception("Введите положительное число!");
-        }
-        setNum1(Integer.parseInt(partsArray[0]));
-        setSign(partsArray[1].charAt(0));
-        setNum2(Integer.parseInt(partsArray[2]));
-    }
-
     public static double calculate(String expression) throws Exception {
-        Calculator.splitExpression(expression);
+        splitExpression(expression);
         return switch(sign) {
             case '+' -> Math.addExact(num1, num2);
             case '-' -> Math.subtractExact(num1, num2);
@@ -40,7 +30,17 @@ public class Calculator {
             case '%' -> Math.floorMod(num1, num2);
             case '^' -> Math.pow(num1, num2);
             case '*' -> Math.multiplyExact(num1, num2);
-            default -> 0;
+            default -> throw new Exception("Операция не найдена");
         };
+    }
+
+    private static void splitExpression(String expression) throws Exception {
+        String[] partsExpression = expression.split(" ");
+        if (!partsExpression[0].matches(" ?\\d+") || !partsExpression[2].matches(" ?\\d+")) {
+            throw new Exception("Введите целое положительное число!");
+        }
+        setNum1(Integer.parseInt(partsExpression[0]));
+        setSign(partsExpression[1].charAt(0));
+        setNum2(Integer.parseInt(partsExpression[2]));
     }
 }
