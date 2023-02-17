@@ -41,12 +41,11 @@ public class ArrayTheme {
         }
         print(doubleArray);
 
-        int middleIndex = length / 2;
-        double middleValue = doubleArray[middleIndex];
+        double middleCellValue = doubleArray[length / 2];
         int countZero = 0;
 
         for (int i = 0; i < length; i++) {
-            if (doubleArray[i] > middleValue) {
+            if (doubleArray[i] > middleCellValue) {
                 doubleArray[i] = 0;
                 countZero++;
             }
@@ -56,15 +55,15 @@ public class ArrayTheme {
         System.out.println("Количество нулевых значений в массиве: " + countZero);
 
         System.out.println("\n4.Вывод элементов массива лесенкой в обратном порядке");
-        char[] letterArray = new char[26];
-        length = letterArray.length;
+        char[] alphabetArray = new char[26];
+        length = alphabetArray.length;
         for (int i = 0; i < length; i++) {
-            letterArray[i] = (char) ('A' + i);
+            alphabetArray[i] = (char) ('A' + i);
         }
 
         for (int i = length - 1; i >= 0; i--) {
             for (int j = length - 1; j >= i; j--) {
-                System.out.print(letterArray[j]);
+                System.out.print(alphabetArray[j]);
             }
             System.out.println();
         }
