@@ -10,9 +10,9 @@ public class Calculator {
         Calculator.num1 = num1;
     }
 
-    public static void setNum2(int num2) throws Exception {
+    public static void setNum2(int num2) {
         if ((sign == '/' || sign == '%') && num2 == 0) {
-            throw new Exception("Делить на 0 нельзя!");
+            throw new RuntimeException("Делить на 0 нельзя!");
         }
         Calculator.num2 = num2;
     }
@@ -21,7 +21,7 @@ public class Calculator {
         Calculator.sign = sign;
     }
 
-    public static double calculate(String expression) throws Exception {
+    public static double calculate(String expression) {
         splitExpression(expression);
         return switch(sign) {
             case '+' -> Math.addExact(num1, num2);
@@ -30,14 +30,14 @@ public class Calculator {
             case '%' -> Math.floorMod(num1, num2);
             case '^' -> Math.pow(num1, num2);
             case '*' -> Math.multiplyExact(num1, num2);
-            default -> throw new Exception("Операция не найдена");
+            default -> throw new RuntimeException("Операция " + sign + " не найдена");
         };
     }
 
-    private static void splitExpression(String expression) throws Exception {
+    private static void splitExpression(String expression) {
         String[] partsExpression = expression.split(" ");
         if (!partsExpression[0].matches(" ?\\d+") || !partsExpression[2].matches(" ?\\d+")) {
-            throw new Exception("Введите целое положительное число!");
+            throw new RuntimeException("Введите целое положительное число!");
         }
         setNum1(Integer.parseInt(partsExpression[0]));
         setSign(partsExpression[1].charAt(0));
