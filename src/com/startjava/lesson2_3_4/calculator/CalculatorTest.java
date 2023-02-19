@@ -17,7 +17,7 @@ public class CalculatorTest {
                 } else {
                     System.out.printf("%.2f", result);
                 }
-            } catch (Exception e) {
+            } catch (RuntimeException e) {
                 System.out.println(e.getMessage() + "\nВведите корректное значение!");
             }
 
