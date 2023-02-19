@@ -16,20 +16,22 @@ public class GuessNumber {
 
     public void play() {
         Player currentPlayer = player1;
-        Random random = new Random();
-        hiddenNumber = random.nextInt(100) + 1;
+        generateHiddenNumber();
+        clearPlayersAttempts();
 
         while (true) {
             guess(currentPlayer);
             if (currentPlayer.getNumber() > 0 && currentPlayer.getNumber() <= 100) {
                 if (currentPlayer.getNumber() > hiddenNumber) {
-                    System.out.println("Число " + currentPlayer.getNumber() + 
+                    System.out.println("Число " + currentPlayer.getNumber() +
                             " больше того, что загадал компьютер");
                 } else if (currentPlayer.getNumber() < hiddenNumber) {
-                    System.out.println("Число " + currentPlayer.getNumber() + 
+                    System.out.println("Число " + currentPlayer.getNumber() +
                             " меньше того, что загадал компьютер");
                 } else {
-                    System.out.println(currentPlayer.getName() + " Вы победили");
+                    System.out.println("Игрок " + currentPlayer.getName() + " угадал число " + hiddenNumber + " с "
+                            + currentPlayer.getCountAttempts() + " попытки");
+                    currentPlayer.printAttemptsNumber();
                     break;
                 }
             } else {
@@ -39,10 +41,21 @@ public class GuessNumber {
         }
     }
 
+    private void generateHiddenNumber() {
+        Random random = new Random();
+        hiddenNumber = random.nextInt(100) + 1;
+    }
+    private void clearPlayersAttempts() {
+        player1.clearAttempts();
+        player2.clearAttempts();
+        System.out.println("У каждого игрока по 10 попыток");
+    }
+
     private void guess(Player currentPlayer) {
+        currentPlayer.setCountAttempts();
         Scanner scanner = new Scanner(System.in);
-        System.out.print(currentPlayer.getName() + " угадайте число :"); 
-        currentPlayer.setNumber(scanner.nextInt());
+        System.out.print(currentPlayer.getName() + " угадайте число :");
+        currentPlayer.setNumber(scanner.nextInt(), currentPlayer.getCountAttempts());
     }
 
     private Player changePlayer(Player currentPlayer) {

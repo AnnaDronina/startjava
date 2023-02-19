@@ -15,13 +15,17 @@ public class GuessNumberTest {
 
         GuessNumber game = new GuessNumber(player1, player2);
 
-        String answer;
+        String answer = "yes";
         do {
-            game.play();
-            do {
+            try {
+                game.play();
+            } catch (RuntimeException e) {
+                System.out.println(e);
+            }
+            if (answer.equals("yes")) {
                 System.out.print("Хотите продолжить игру? [yes/no]:");
                 answer = scanner.next();
-            } while (!answer.equals("yes") && !answer.equals("no"));
+            }
         } while (!answer.equals("no"));
     }
 }
