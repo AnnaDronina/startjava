@@ -13,26 +13,11 @@ public class GuessNumber {
 
     public GuessNumber(Player ...players) {
         this.players = players;
-        castLots();
-    }
-
-    private void castLots() {
-        int length = players.length;
-        for (int i = length - 1; i > 0; i--) {
-            int j = (int) (Math.random() * i);
-            Player temp = players[j];
-            players[j] = players[i];
-            players[i] = temp;
-        }
-        System.out.println("Порядок хода игроков: ");
-        for (Player player : players) {
-            System.out.print(' ' + player.getName());
-        }
-        System.out.println();
     }
 
     public void play() {
-        clearPlayersNumberWin();
+        castLots();
+        clearPlayersCountWin();
         int round = 0;
         while (round < LIMIT_ROUNDS) {
             round++;
@@ -55,9 +40,24 @@ public class GuessNumber {
         printWinner();
     }
 
-    private void clearPlayersNumberWin() {
+    private void castLots() {
+        int length = players.length;
+        for (int i = length - 1; i > 0; i--) {
+            int j = (int) (Math.random() * i);
+            Player temp = players[j];
+            players[j] = players[i];
+            players[i] = temp;
+        }
+        System.out.println("Порядок хода игроков: ");
+        for (Player player : players) {
+            System.out.print(' ' + player.getName());
+        }
+        System.out.println();
+    }
+
+    private void clearPlayersCountWin() {
         for (Player currentPlayer : players) {
-            currentPlayer.clearNumberWins();
+            currentPlayer.clearCountWin();
         }
     }
 
@@ -79,7 +79,7 @@ public class GuessNumber {
         if (currentPlayer.getNumber() == hiddenNumber) {
             System.out.println("Игрок " + currentPlayer.getName() + " угадал число " + hiddenNumber + " с "
                     + currentPlayer.getCountAttempts() + " попытки");
-            currentPlayer.setNumberWins();
+            currentPlayer.setCountWin();
             printAttemptsNumber(currentPlayer);
             return false;
         }
@@ -118,12 +118,12 @@ public class GuessNumber {
         int maxWin = 0;
         Player playerWin = players[0];
         for (Player currentPlayer : players) {
-            if (currentPlayer.getNumberWins() > maxWin) {
-                maxWin =  currentPlayer.getNumberWins();
+            if (currentPlayer.getCountWin() > maxWin) {
+                maxWin =  currentPlayer.getCountWin();
                 playerWin = currentPlayer;
             }
         }
         System.out.println("По результатам " + LIMIT_ROUNDS + " раундов, выиграл " + playerWin.getName() + " со счетом "
-                + playerWin.getNumberWins());
+                + playerWin.getCountWin());
     }
 }

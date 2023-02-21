@@ -7,7 +7,7 @@ public class Player {
     private String name;
     private int[] numbers = new int[10];
     private int countAttempts;
-    private int numberWins;
+    private int countWin;
 
     public Player(String name) {
         this.name = name;
@@ -28,12 +28,12 @@ public class Player {
         }
     }
 
-    public void setNumberWins() {
-        numberWins++;
+    public void setCountWin() {
+        countWin++;
     }
 
-    public int getNumberWins() {
-        return numberWins;
+    public int getCountWin() {
+        return countWin;
     }
 
     public int[] getNumbers() {
@@ -58,7 +58,7 @@ public class Player {
         countAttempts = 0;
     }
 
-    public void clearNumberWins() {
-        numberWins = 0;
+    public void clearCountWin() {
+        countWin = 0;
     }
 }
