@@ -40,7 +40,7 @@ public class Player {
         return numbers;
     }
 
-    public boolean addNumber(int number) {  // это был setNumber
+    public boolean addNumber(int number) {
         if (number > 0 && number <= 100) {
             numbers[countAttempts] = number;
             setCountAttempts();
