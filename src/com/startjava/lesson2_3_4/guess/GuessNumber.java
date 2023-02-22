@@ -57,8 +57,8 @@ public class GuessNumber {
     }
 
     private void clearPlayersCountWins() {
-        for (Player currentPlayer : players) {
-            currentPlayer.clearCountWins();
+        for (Player player : players) {
+            player.clearCountWins();
         }
     }
 
@@ -68,8 +68,8 @@ public class GuessNumber {
     }
 
     private void clearPlayersAttempts() {
-        for (Player currentPlayer : players) {
-            currentPlayer.clearAttempts();
+        for (Player player: players) {
+            player.clearAttempts();
         }
     }
 
