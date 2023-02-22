@@ -7,7 +7,7 @@ public class Player {
     private String name;
     private int[] numbers = new int[10];
     private int countAttempts;
-    private int countWin;
+    private int countWins;
 
     public Player(String name) {
         this.name = name;
@@ -21,19 +21,12 @@ public class Player {
         return countAttempts;
     }
 
-    public void setCountAttempts() {
-        countAttempts++;
-        if (countAttempts == 10) {
-            throw new RuntimeException("У игрока " + name + " закончились попытки");
-        }
+    public void setCountWins() {
+        countWins++;
     }
 
-    public void setCountWin() {
-        countWin++;
-    }
-
-    public int getCountWin() {
-        return countWin;
+    public int getCountWins() {
+        return countWins;
     }
 
     public int[] getNumbers() {
@@ -49,6 +42,13 @@ public class Player {
         throw new RuntimeException("Введенное число не находится в полуинтервале (0, 100]");
     }
 
+    private void setCountAttempts() {
+        countAttempts++;
+        if (countAttempts == 10) {
+            throw new RuntimeException("У игрока " + name + " закончились попытки");
+        }
+    }
+
     public int getNumber() {
         return numbers[countAttempts - 1];
     }
@@ -58,7 +58,7 @@ public class Player {
         countAttempts = 0;
     }
 
-    public void clearCountWin() {
-        countWin = 0;
+    public void clearCountWins() {
+        countWins = 0;
     }
 }
