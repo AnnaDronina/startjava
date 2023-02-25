@@ -8,14 +8,7 @@ public class GuessNumberTest {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Player[] players = new Player[COUNT_PLAYERS];
-
-        for (int i = 0; i < COUNT_PLAYERS; i++) {
-            System.out.printf("Игрок %S введите имя: ", i + 1);
-            players[i] = new Player(scanner.nextLine());
-        }
-
-        GuessNumber game = new GuessNumber(players);
+        GuessNumber game = new GuessNumber(createPlayers(scanner));
 
         String answer = "yes";
         do {
@@ -29,5 +22,14 @@ public class GuessNumberTest {
             System.out.print("Хотите продолжить игру? [yes/no]:");
             answer = scanner.next();
         } while (!answer.equals("no"));
+    }
+
+    private static Player[] createPlayers(Scanner scanner) {
+        Player[] players = new Player[COUNT_PLAYERS];
+        for (int i = 0; i < COUNT_PLAYERS; i++) {
+            System.out.printf("Игрок %S введите имя: ", i + 1);
+            players[i] = new Player(scanner.nextLine());
+        }
+        return players;
     }
 }

@@ -30,19 +30,19 @@ public class Player {
     }
 
     public int[] getNumbers() {
-        return numbers;
+        return Arrays.copyOf(numbers, countAttempts);
     }
 
     public boolean addNumber(int number) {
         if (number > 0 && number <= 100) {
             numbers[countAttempts] = number;
-            setCountAttempts();
+            upCountAttempts();
             return true;
         }
         throw new RuntimeException("Введенное число не находится в полуинтервале (0, 100]");
     }
 
-    private void setCountAttempts() {
+    private void upCountAttempts() {
         countAttempts++;
         if (countAttempts == 10) {
             throw new RuntimeException("У игрока " + name + " закончились попытки");

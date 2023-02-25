@@ -1,6 +1,5 @@
 package com.startjava.lesson2_3_4.guess;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -11,7 +10,7 @@ public class GuessNumber {
     private static final int ROUNDS_LIMIT = 3;
     private static final int ATTEMPTS_LIMIT = 10;
 
-    public GuessNumber(Player ...players) {
+    public GuessNumber(Player... players) {
         this.players = players;
     }
 
@@ -27,11 +26,11 @@ public class GuessNumber {
             System.out.println("У каждого игрока по 10 попыток");
 
             int attempt = 1;
-            boolean winner = true;
-            while (attempt <= ATTEMPTS_LIMIT && winner) {
+            boolean victorious = true;
+            while (attempt <= ATTEMPTS_LIMIT && victorious) {
                 for (Player player : players) {
-                    winner = isGuessed(player);
-                    if (!winner) {
+                    victorious = isGuessed(player);
+                    if (!victorious) {
                         break;
                     }
                 }
@@ -68,7 +67,7 @@ public class GuessNumber {
     }
 
     private void clearPlayersAttempts() {
-        for (Player player: players) {
+        for (Player player : players) {
             player.clearAttempts();
         }
     }
@@ -103,9 +102,9 @@ public class GuessNumber {
     }
 
     private void printAttemptsNumber() {
-        for(Player player : players) {
+        for (Player player : players) {
             System.out.println("Попытки игрока " + player.getName());
-            int[] numbers = Arrays.copyOf(player.getNumbers(), player.getCountAttempts());
+            int[] numbers = player.getNumbers();
             int length = numbers.length;
             for (int i = 0; i < length; i++) {
                 if (i == length / 2) {
