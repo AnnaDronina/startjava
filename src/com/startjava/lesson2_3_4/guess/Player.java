@@ -4,8 +4,9 @@ import java.util.Arrays;
 
 public class Player {
 
+    private static final int ATTEMPTS_LIMIT = 10;
     private String name;
-    private int[] numbers = new int[10];
+    private int[] numbers = new int[ATTEMPTS_LIMIT];
     private int countAttempts;
     private int countWins;
 
@@ -44,7 +45,7 @@ public class Player {
 
     private void upCountAttempts() {
         countAttempts++;
-        if (countAttempts == 10) {
+        if (countAttempts == ATTEMPTS_LIMIT) {
             throw new RuntimeException("У игрока " + name + " закончились попытки");
         }
     }
