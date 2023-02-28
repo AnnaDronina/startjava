@@ -1,5 +1,7 @@
 CREATE DATABASE jaegers;
 
+\c jaegers;
+
 CREATE TABLE jaegers (
     id        SERIAL NOT NULL PRIMARY KEY,
     modelname VARCHAR(50) NOT NULL,
@@ -9,4 +11,8 @@ CREATE TABLE jaegers (
     status    VARCHAR(10),
     origin    VARCHAR(50),
     launch    DATE,
-    kaijukill INTEGER);
+    kaijukill INTEGER
+);
+
+\ir 'init_db.sql'
+\ir 'queries.sql'
